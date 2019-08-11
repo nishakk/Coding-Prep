@@ -1,6 +1,14 @@
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Question: Given a list of items with values and weights, as well as a max weight,
+ * find the maximum value you can generate from items where the sum of the
+ * weights is less than the max.
+ * 
+ * @author nishakk
+ *
+ */
 public class Knapsack {
 	public static void main(String[] args) {
 		int[] w = {10, 20, 30};
