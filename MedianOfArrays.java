@@ -11,6 +11,9 @@ public class MedianOfArrays {
 		System.out.println(medianOfArrays(arr1, arr2));
 	}
 	
+	/**
+	 * Solution Time Complexity: O(n)
+	 */
 	private static float medianOfArrays(int[] a1, int[] a2) {
 		float[] arr = new float[a1.length + a2.length];
 		int i = 0, j = 0;
