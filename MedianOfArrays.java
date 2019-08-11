@@ -13,6 +13,7 @@ public class MedianOfArrays {
 	
 	/**
 	 * Solution Time Complexity: O(n)
+	 * Better Solution using Binary Search: O(log n)
 	 */
 	private static float medianOfArrays(int[] a1, int[] a2) {
 		float[] arr = new float[a1.length + a2.length];
