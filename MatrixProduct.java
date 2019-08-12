@@ -32,27 +32,25 @@ public class MatrixProduct {
 		int[][] maxPath = new int[mat.length][mat[0].length];
 		int[][] minPath = new int[mat.length][mat[0].length];
 		
-		maxPath[0][0] = mat[0][0];
-		minPath[0][0] = mat[0][0];
-		
-		for (int i = 1; i < mat[0].length; i++) {
-			maxPath[0][i] = mat[0][i] * maxPath[0][i-1];
-			minPath[0][i] = maxPath[0][i];
-		}
-		
-		for (int i = 1; i < mat.length; i++) {
-			maxPath[i][0] = mat[i][0] * maxPath[i-1][0];
-			minPath[i][0] = maxPath[i][0];
-		}
-		
-		for (int i = 1; i < mat.length; i++) {
-			for (int j = 1; j < mat[0].length; j++) {
-				int maxLeft = mat[i][j] * maxPath[i-1][j];
-				int maxUp = mat[i][j] * maxPath[i][j-1];
-				int minLeft = mat[i][j] * minPath[i-1][j];
-				int minUp = mat[i][j] * minPath[i][j-1];
-				maxPath[i][j] = Math.max(Math.max(maxLeft, maxUp), Math.max(minLeft, minUp));
-				minPath[i][j] = Math.min(Math.min(maxUp, maxLeft), Math.min(minLeft, minUp));
+		for (int i = 0; i < mat.length; i++) {
+			for (int j = 0; j < mat[0].length; j++) {
+				if (i == 0 && j == 0) {
+					maxPath[i][j] = mat[i][j];
+					minPath[i][j] = mat[i][j];
+				} else if (i == 0) {
+					maxPath[i][j] = mat[i][j] * maxPath[i][j-1];
+					minPath[i][j] = maxPath[i][j];
+				} else if (j == 0) {
+					maxPath[i][j] = mat[i][j] * maxPath[i-1][j];
+					minPath[i][j] = maxPath[i][j];
+				} else {
+					int maxLeft = mat[i][j] * maxPath[i-1][j];
+					int maxUp = mat[i][j] * maxPath[i][j-1];
+					int minLeft = mat[i][j] * minPath[i-1][j];
+					int minUp = mat[i][j] * minPath[i][j-1];
+					maxPath[i][j] = Math.max(Math.max(maxLeft, maxUp), Math.max(minLeft, minUp));
+					minPath[i][j] = Math.min(Math.min(maxUp, maxLeft), Math.min(minLeft, minUp));
+				}
 			}
 		}
 		
