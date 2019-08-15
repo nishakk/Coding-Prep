@@ -1,6 +1,10 @@
 import java.util.Arrays;
 import java.util.PriorityQueue;
-
+/**
+ * Question: Given k sorted arrays, merge them into a single sorted array.
+ * @author nishakk
+ *
+ */
 public class MergeKSortedArrays {
 	public static void main(String[] args) {
 		int[][] arr = {
